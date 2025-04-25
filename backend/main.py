@@ -11,7 +11,7 @@ import shutil
 from openai import OpenAI
 from settings import get_settings, AVAILABLE_MODELS, DEFAULT_MODEL
 
-app = FastAPI(title="GroqTranscribe API")
+app = FastAPI(title="GroqLyricAnalyzer API")
 settings = get_settings()
 
 # CORS middleware to allow frontend to communicate with backend
@@ -68,7 +68,7 @@ async def verify_api_key(api_key: str = Depends(api_key_header)):
 # Routes
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to GroqTranscribe API"}
+    return {"message": "Welcome to GroqLyricAnalyzer API"}
 
 @app.get("/models", response_model=ModelsResponse)
 def get_models():

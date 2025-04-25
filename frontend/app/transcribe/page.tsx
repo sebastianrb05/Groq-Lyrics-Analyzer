@@ -150,7 +150,7 @@ export default function TranscribePage() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-primary-500">GroqTranscribe</h1>
+        <h1 className="text-3xl font-bold text-space-blue">GroqLyricAnalyzer</h1>
         <button 
           onClick={handleLogout}
           className="btn btn-secondary text-sm"
@@ -163,7 +163,7 @@ export default function TranscribePage() {
         <h2 className="text-xl font-semibold mb-4 text-white">Upload Audio File</h2>
         
         <div 
-          className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-primary-500 transition-colors bg-dark-300"
+          className="border-2 border-dashed border-dark-100 rounded-lg p-8 text-center cursor-pointer hover:border-space-teal transition-colors bg-dark-300/50 backdrop-blur-sm"
           onClick={() => fileInputRef.current?.click()}
         >
           <input
@@ -173,7 +173,7 @@ export default function TranscribePage() {
             accept="audio/*"
             onChange={handleFileChange}
           />
-          <FiUpload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+          <FiUpload className="mx-auto h-12 w-12 text-space-teal mb-4" />
           <p className="text-gray-300 mb-2">Click to upload or drag and drop</p>
           <p className="text-sm text-gray-400">Audio files only (MP3, WAV, etc.)</p>
         </div>
@@ -211,7 +211,7 @@ export default function TranscribePage() {
         )}
 
         {error && (
-          <div className="mt-4 p-3 bg-red-900/50 text-red-200 rounded-md flex items-start border border-red-700">
+          <div className="mt-4 p-3 bg-red-900/30 text-red-200 rounded-md flex items-start border border-red-700/50 backdrop-blur-sm">
             <FiAlertCircle className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
             <p>{error}</p>
           </div>
@@ -242,7 +242,7 @@ export default function TranscribePage() {
           </div>
           
           {analysisSettings.showSettings && (
-            <div className="mb-4 p-4 bg-dark-300 rounded-md border border-gray-700 animate-fadeIn">
+            <div className="mb-4 p-4 bg-dark-300/50 rounded-md border border-dark-100/70 animate-fadeIn backdrop-blur-sm">
               <h3 className="text-md font-medium text-white mb-3">Analysis Settings</h3>
               
               <div className="mb-3">
@@ -285,7 +285,7 @@ export default function TranscribePage() {
             </div>
           )}
           
-          <div className="p-4 bg-dark-300 rounded-md whitespace-pre-wrap text-gray-200 border border-gray-700">
+          <div className="p-4 bg-dark-300/50 rounded-md whitespace-pre-wrap text-gray-200 border border-dark-100/70 backdrop-blur-sm">
             {transcription}
           </div>
         </div>
@@ -298,12 +298,12 @@ export default function TranscribePage() {
           <div className="space-y-4">
             <div>
               <h3 className="text-md font-medium text-gray-200 mb-2">Meaning/Interpretation:</h3>
-              <p className="p-3 bg-dark-300 rounded-md text-gray-200 border border-gray-700">{analysis.meaning}</p>
+              <p className="p-3 bg-dark-300/50 rounded-md text-gray-200 border border-dark-100/70 backdrop-blur-sm">{analysis.meaning}</p>
             </div>
             
             <div>
               <h3 className="text-md font-medium text-gray-200 mb-2">Sentiment:</h3>
-              <p className="p-3 bg-dark-300 rounded-md text-gray-200 border border-gray-700">{analysis.sentiment}</p>
+              <p className="p-3 bg-dark-300/50 rounded-md text-gray-200 border border-dark-100/70 backdrop-blur-sm">{analysis.sentiment}</p>
             </div>
             
             <div>
@@ -312,7 +312,7 @@ export default function TranscribePage() {
                 {analysis.themes.map((theme, index) => (
                   <span 
                     key={index} 
-                    className="px-3 py-1 bg-primary-900/50 text-primary-200 rounded-full text-sm border border-primary-700"
+                    className="px-3 py-1 bg-space-indigo/50 text-space-teal rounded-full text-sm border border-space-indigo/70 backdrop-blur-sm"
                   >
                     {theme}
                   </span>
@@ -323,7 +323,7 @@ export default function TranscribePage() {
             {analysis.additional_insights && (
               <div>
                 <h3 className="text-md font-medium text-gray-200 mb-2">Additional Insights:</h3>
-                <p className="p-3 bg-dark-300 rounded-md text-gray-200 border border-gray-700">{analysis.additional_insights}</p>
+                <p className="p-3 bg-dark-300/50 rounded-md text-gray-200 border border-dark-100/70 backdrop-blur-sm">{analysis.additional_insights}</p>
               </div>
             )}
           </div>

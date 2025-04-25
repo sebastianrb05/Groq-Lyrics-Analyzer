@@ -4,18 +4,53 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 40, 44, 52;
-  --background-end-rgb: 26, 29, 35;
+  --background-start-rgb: 18, 20, 31;
+  --background-end-rgb: 7, 8, 16;
+  --star-color: 255, 255, 255;
+  --nebula-purple: 157, 78, 221;
+  --nebula-blue: 58, 134, 255;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(var(--nebula-purple), 0.1), transparent 30%),
+    radial-gradient(circle at 80% 60%, rgba(var(--nebula-blue), 0.1), transparent 40%),
+    linear-gradient(
       to bottom,
       rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb))
     );
+  background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Space-themed star background effect */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 40px 60px, rgba(var(--star-color), 0.8), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 20px 50px, rgba(var(--star-color), 0.7), rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 170px 90px, rgba(var(--star-color), 0.7), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 150px 120px, rgba(var(--star-color), 0.8), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 200px 90px, rgba(var(--star-color), 0.6), rgba(0,0,0,0));
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Glow effect for headings */
+h1.text-space-blue, h2.text-space-blue {
+  text-shadow: 0 0 15px rgba(58, 134, 255, 0.5);
 }
 
 @layer components {
@@ -24,19 +59,19 @@ body {
   }
   
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700;
+    @apply bg-primary-600 hover:bg-primary-700 shadow-md shadow-primary-700/30;
   }
   
   .btn-secondary {
-    @apply bg-gray-700 hover:bg-gray-800;
+    @apply bg-space-indigo hover:bg-space-indigo/80 shadow-md shadow-space-indigo/20;
   }
   
   .input {
-    @apply w-full p-2 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 bg-dark-200 text-white;
+    @apply w-full p-2 border border-dark-100 rounded-md focus:outline-none focus:ring-2 focus:ring-space-blue bg-dark-200/80 text-white backdrop-blur-sm;
   }
   
   .card {
-    @apply bg-dark-200 p-6 rounded-lg shadow-md border border-gray-700;
+    @apply bg-dark-200/80 p-6 rounded-lg shadow-lg border border-dark-100/80 backdrop-blur-sm;
   }
 }
 
@@ -47,4 +82,11 @@ body {
 
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Subtle glowing border for cards on hover */
+.card:hover {
+  box-shadow: 0 0 20px rgba(58, 134, 255, 0.1);
+  border-color: rgba(58, 134, 255, 0.3);
+  transition: all 0.3s ease-in-out;
 } 

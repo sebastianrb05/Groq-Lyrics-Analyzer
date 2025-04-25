@@ -38,8 +38,8 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-[80vh]">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-primary-500 mb-2">GroqTranscribe</h1>
-          <p className="text-gray-300">Transcribe and analyze audio using Groq AI</p>
+          <h1 className="text-4xl font-bold text-space-blue mb-2">GroqLyricAnalyzer</h1>
+          <p className="text-gray-300">Analyze lyrics and song meanings using Groq AI</p>
         </div>
 
         <div className="card">
@@ -68,7 +68,7 @@ export default function Home() {
                   href="https://console.groq.com/keys" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-primary-400 hover:underline"
+                  className="text-space-teal hover:underline"
                 >
                   Groq Console
                 </a>
@@ -76,7 +76,7 @@ export default function Home() {
             </div>
 
             {error && (
-              <div className="mb-4 p-2 bg-red-900/50 text-red-200 rounded-md text-sm border border-red-700">
+              <div className="mb-4 p-2 bg-red-900/30 text-red-200 rounded-md text-sm border border-red-700/50 backdrop-blur-sm">
                 {error}
               </div>
             )}

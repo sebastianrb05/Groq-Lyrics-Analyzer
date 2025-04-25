@@ -2,8 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'GroqTranscribe',
-  description: 'Transcribe and analyze audio using Groq AI',
+  title: 'GroqLyricAnalyzer',
+  description: 'Analyze lyrics and song meanings using Groq AI',
 }
 
 export default function RootLayout({

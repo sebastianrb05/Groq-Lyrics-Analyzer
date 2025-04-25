@@ -40,10 +40,13 @@ EVALUATION_MODELS = [
 DEFAULT_MODEL = "llama-3.1-8b-instant"
 
 class Settings(BaseSettings):
-    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
+    GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", None)
     AVAILABLE_MODELS: List[str] = AVAILABLE_MODELS
     EVALUATION_MODELS: List[str] = EVALUATION_MODELS
     DEFAULT_MODEL: str = DEFAULT_MODEL
+    host: str = os.getenv("HOST", "127.0.0.1")
+    port: int = int(os.getenv("PORT", "8000"))
+    cors_origins: str = os.getenv("CORS_ORIGINS", "http://localhost:3000")
     
     class Config:
         env_file = ".env"
