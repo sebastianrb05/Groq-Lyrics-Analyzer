@@ -1,0 +1,31 @@
+# Python virtual environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+.ENV/
+backend/venv/
+
+# Python byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Local development settings
+.env
+.env.local 
+
+# Frontend cache
+frontend/.cache/
+frontend/node_modules/
+.next/
+frontend/.next/
+
+# Backend
+backend/testing.py
